@@ -15,7 +15,7 @@ class AutoModelView(ModelViewSet):
 
 
 class AutoMarkView(ModelViewSet):
-    queryset = AutoMark.objects.annotate(ordered_cars=Sum('model__order__count'))
+    queryset = AutoMark.objects.annotate(ordered_cars=Sum('model__order__count', default=0))
     serializer_class = AutoMarkSerializer
 
     def get_serializer_class(self):
@@ -28,7 +28,7 @@ class AutoMarkView(ModelViewSet):
 class ColorView(mixins.ListModelMixin,
                 mixins.RetrieveModelMixin,
                 GenericViewSet):
-    queryset = Color.objects.annotate(ordered_cars=Sum('order__count'))
+    queryset = Color.objects.annotate(ordered_cars=Sum('order__count', default=0))
     serializer_class = ColorSerializer
 
 
