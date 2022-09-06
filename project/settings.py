@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env_path = os.path.join(BASE_DIR, '.env')
-print(env_path)
+
 load_dotenv(env_path)
 
 # Quick-start development settings - unsuitable for production
@@ -25,6 +25,7 @@ load_dotenv(env_path)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-&2xvzjtei3733^(*9%ppi83n7qynj*(%e0h@k-5ymk+0&odkwc'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
