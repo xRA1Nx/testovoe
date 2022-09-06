@@ -1,0 +1,22 @@
+from App.models import *
+
+c1=Color.objects.create(name = "green")
+c2=Color.objects.create(name = "blue")
+c3=Color.objects.create(name = "red")
+c4=Color.objects.create(name = "black")
+
+model1 = AutoModel.objects.create(name = "Teana")
+model2 = AutoModel.objects.create(name = "Murano")
+model3 = AutoModel.objects.create(name = "Focus")
+model4 = AutoModel.objects.create(name = "Vesta")
+
+AutoMark.objects.create(name = "Nissan", model=model1)
+AutoMark.objects.create(name = "Nissan", model=model2)
+AutoMark.objects.create(name = "Ford", model=model3)
+AutoMark.objects.create(name = "Lada", model=model4)
+
+Order.objects.create(color=c1, model=model1, count=3)
+Order.objects.create(color=c2, model=model1, count=5)
+Order.objects.create(color=c3, model=model2, count=8)
+Order.objects.create(color=c4, model=model4, count=2)
+
