@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .models import AutoModel
+from .serializers import AutoModelSerializer
 
-# Create your views here.
+
+class AutoModelsView(ModelViewSet):
+    queryset = AutoModel.objects.all()
+    serializer_class = AutoModelSerializer
